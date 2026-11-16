@@ -22,12 +22,12 @@ html, body {
   padding: 0;
   width: 100%;
   min-height: 100%;
-  background: #111214;
+  background: var(--bg);
   color: var(--text-secondary);
   font-family: 'Roboto', system-ui, -apple-system, sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -40,16 +40,18 @@ button {
   cursor: pointer;
 }
 
-/* Main Screen Frame */
+/* Main Native App Screen Container */
 .screen {
   position: relative;
-  width: min(100vw, 412px);
-  height: 100dvh;
-  min-height: 820px;
+  width: 100%;
+  max-width: 440px;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--bg);
   overflow-y: auto;
   overflow-x: hidden;
-  padding-bottom: 94px;
+  padding-top: max(14px, env(safe-area-inset-top));
+  padding-bottom: calc(84px + env(safe-area-inset-bottom, 12px));
   scrollbar-width: none;
 }
 
@@ -57,109 +59,54 @@ button {
   display: none;
 }
 
-/* Android Status Bar */
-.status-bar {
-  height: 38px;
-  padding: 10px 18px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  font-weight: 500;
-  color: #f1f3f4;
-  user-select: none;
-}
-
-.status-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.clock {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-}
-
-.status-icon {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.status-right {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 8px;
-  line-height: 8px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.network-tech, .network-speed, .network-type {
-  display: inline-block;
-}
-
-.network-arrows {
-  font-size: 6px;
-  line-height: 6px;
-}
-
-.battery-pill {
-  border: 1.2px solid #e8eaed;
-  border-radius: 4px;
-  padding: 2px 4px;
-  margin-left: 2px;
-}
-
-.battery-pct {
-  font-size: 9px;
-  font-weight: 700;
-  line-height: 9px;
-}
-
 /* App Top Toolbar */
 .toolbar {
-  height: 48px;
+  height: 52px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 16px;
-  padding: 0 16px;
+  padding: 0 18px;
 }
 
 .info-btn {
   color: #f1f3f4;
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  transition: background 0.15s ease;
+}
+
+.info-btn:active {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .profile-avatar {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 2.5px solid #1a73e8;
   background: var(--bg);
   color: #ffffff;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 500;
   display: grid;
   place-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Activity Rings & Scores */
 .activity-section {
   text-align: center;
-  padding-top: 10px;
+  padding-top: 6px;
 }
 
 .rings-container {
   position: relative;
-  width: 210px;
-  height: 210px;
+  width: 220px;
+  height: 220px;
   margin: 0 auto;
 }
 
@@ -210,7 +157,7 @@ button {
 }
 
 .primary-score {
-  font-size: 46px;
+  font-size: 48px;
   line-height: 1;
   font-weight: 400;
   color: var(--fit-green);
@@ -218,7 +165,7 @@ button {
 }
 
 .secondary-score {
-  font-size: 21px;
+  font-size: 22px;
   line-height: 1.1;
   font-weight: 500;
   color: var(--fit-blue);
@@ -230,9 +177,9 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 22px;
+  gap: 24px;
   margin-top: 18px;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 500;
   color: var(--text-secondary);
 }
@@ -255,7 +202,7 @@ button {
 .summary-stats {
   display: flex;
   justify-content: space-around;
-  margin: 26px 16px 20px;
+  margin: 28px 16px 22px;
 }
 
 .stat-col {
@@ -266,7 +213,7 @@ button {
 }
 
 .stat-value {
-  font-size: 20px;
+  font-size: 21px;
   line-height: 1.2;
   font-weight: 600;
   color: var(--fit-blue-200);
@@ -294,7 +241,7 @@ button {
 
 .card-title {
   margin: 0;
-  font-size: 15px;
+  font-size: 15.5px;
   font-weight: 500;
   color: var(--text-white);
   line-height: 1.3;
@@ -332,6 +279,15 @@ button {
   font-size: 20px;
   line-height: 1;
   color: var(--text-muted);
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.dismiss-btn:active {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .card-desc {
@@ -351,6 +307,10 @@ button {
   color: var(--fit-blue-200);
   font-size: 14px;
   font-weight: 500;
+}
+
+.card-link-btn:active {
+  opacity: 0.8;
 }
 
 /* Card 2: Daily Goals */
@@ -521,8 +481,8 @@ button {
 .fab-btn {
   position: fixed;
   z-index: 10;
-  right: max(calc((100vw - 412px)/2 + 20px), 20px);
-  bottom: 86px;
+  right: max(calc((100vw - 440px)/2 + 20px), 20px);
+  bottom: calc(76px + env(safe-area-inset-bottom, 0px));
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -542,11 +502,13 @@ button {
 .bottom-nav {
   position: fixed;
   z-index: 9;
-  bottom: 20px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: min(100vw, 412px);
-  height: 64px;
+  width: 100%;
+  max-width: 440px;
+  height: calc(64px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   background: var(--nav-bg);
   border-top: 1px solid #282a2e;
   display: flex;
@@ -579,46 +541,27 @@ button {
   font-weight: 600;
 }
 
-/* Android Gesture Pill */
-.gesture-bar {
-  position: fixed;
-  z-index: 11;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(100vw, 412px);
-  height: 20px;
-  background: var(--bg);
-  display: grid;
-  place-items: center;
-}
-
-.gesture-pill {
-  width: 108px;
-  height: 4px;
-  border-radius: 2px;
-  background: #737579;
-}
-
 /* Desktop Presentation View */
 @media (min-width: 600px) {
   body {
-    background: #0f1012;
+    background: #111215;
     padding: 24px 0;
   }
   .screen {
     width: 412px;
-    height: 890px;
-    min-height: 890px;
+    height: 90vh;
+    min-height: 780px;
     border-radius: 28px;
     box-shadow: 0 16px 60px rgba(0, 0, 0, 0.7);
     border: 1px solid #2d3035;
   }
-  .bottom-nav, .gesture-bar {
+  .bottom-nav {
     position: absolute;
+    border-radius: 0 0 28px 28px;
   }
   .fab-btn {
     position: absolute;
     right: 20px;
+    bottom: 80px;
   }
 }
