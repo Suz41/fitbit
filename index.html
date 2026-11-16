@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#202124" />
+  <title>Google Fit – Home</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<main class="screen">
+  <div class="status">
+    <span class="clock">6:58</span><span class="status-instagram">◎</span><span class="download">↓</span>
+    <span class="sys"><span class="signal">▮▮</span><span>Vo<br>NR</span><span>715<br>KB/s</span><span>5G+<br>▴▴</span><span class="battery">62</span></span>
+  </div>
+
+  <header class="toolbar">
+    <button class="info" aria-label="Information">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M12 10.5v6M12 7.3h.01"/></svg>
+    </button>
+    <button class="profile" aria-label="Profile">S</button>
+  </header>
+
+  <section class="activity">
+    <div class="activity-rings">
+      <svg viewBox="0 0 300 300" aria-hidden="true">
+        <circle class="outer-bg" cx="150" cy="150" r="128"/>
+        <circle class="outer-value" cx="150" cy="150" r="128" pathLength="100"/>
+        <circle class="inner-bg" cx="150" cy="150" r="103"/>
+        <circle class="inner-value" cx="150" cy="150" r="103" pathLength="100"/>
+      </svg>
+      <div class="score"><strong>100</strong><span>13,451</span></div>
+    </div>
+    <div class="key">
+      <span><svg viewBox="0 0 24 24"><path d="M20.5 8.7c0-2.5-1.8-4.2-4.1-4.2-1.8 0-3.1 1-4.4 2.7-1.2-1.7-2.5-2.7-4.4-2.7-2.3 0-4.1 1.7-4.1 4.2 0 3.2 3.7 6.3 8.5 10.4 4.8-4.1 8.5-7.2 8.5-10.4Z"/></svg>Heart Pts</span>
+      <span><svg viewBox="0 0 24 24"><path d="M4 13.5 8 9l3 3 3-5 6 6M5 18h4m3 0h7"/><path d="m17 5 3 1-1 3"/></svg>Steps</span>
+    </div>
+    <div class="stats">
+      <div><strong>1,599</strong><span>Cal</span></div>
+      <div><strong>9.02</strong><span>km</span></div>
+      <div><strong>132</strong><span>Move Min</span></div>
+    </div>
+  </section>
+
+  <section class="cards">
+    <article class="health-card">
+      <button class="dismiss" aria-label="Dismiss">×</button>
+      <h2>Sync Fit with Health Connect</h2>
+      <p>Share stats between Fit and your other apps, like your<br class="desktop-break"> calories, heart rate, and body measurements</p>
+      <svg class="health-logo" viewBox="0 0 80 70" aria-hidden="true">
+        <path d="M38 9C27-2 9 5 8 22c-1 14 13 29 29 40 4 3 9 3 13-1l20-21c8-9 2-25-10-27-8-1-13 5-18 12L28 43c-4 4-11 0-10-6 1-5 7-8 13-5" />
+        <path d="M42 30c4-7 10-12 17-9 7 3 8 12 3 18L47 54" />
+      </svg>
+      <button class="get-started" id="connectBtn">Get started</button>
+    </article>
+
+    <article class="daily-card">
+      <span class="chevron">›</span>
+      <h2>Your daily goals</h2>
+      <p class="sub">Last 7 days</p>
+      <div class="daily-content">
+        <div class="achieved"><strong>3/7</strong><span>Achieved</span></div>
+        <div class="week">
+          <div class="weekday"><div class="tiny-ring partial t1"><i></i></div><span>T</span></div>
+          <div class="weekday done"><b>✓</b><div class="tiny-ring t2"><i></i></div><span>W</span></div>
+          <div class="weekday"><div class="tiny-ring t3"><i></i></div><span>T</span></div>
+          <div class="weekday"><div class="tiny-ring partial t4"><i></i></div><span>F</span></div>
+          <div class="weekday"><div class="tiny-ring t5"><i></i></div><span>S</span></div>
+          <div class="weekday done"><b>✓</b><div class="tiny-ring t6"><i></i></div><span>S</span></div>
+          <div class="weekday done today"><b>✓</b><div class="tiny-ring t7"><i></i></div><span>M</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="weekly-card">
+      <span class="chevron">›</span>
+      <h2>Your weekly target</h2>
+      <p class="sub">Nov 15 – 21</p>
+      <div class="target">
+        <strong>133 <small>of 150</small></strong>
+        <div class="bar"><i></i></div>
+      </div>
+      <p class="weekly-copy">Scoring 150 Heart Points a week can help you<br> improve your health and boost your mood.</p>
+    </article>
+  </section>
+
+  <button class="fab" id="addBtn" aria-label="Add activity"><span></span><i></i></button>
+  <nav class="bottom-nav">
+    <button class="nav active" data-tab="Home"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10.5"/><circle cx="14" cy="14" r="6.5"/><path d="M14 7.5v6.5l4 2"/></svg><b>Home</b></button>
+    <button class="nav" data-tab="Journal"><svg viewBox="0 0 28 28"><rect x="6" y="5" width="16" height="20" rx="1.5"/><path d="M10 3v5m8-5v5M10 12h8m-8 4h8m-8 4h6"/></svg></button>
+    <button class="nav" data-tab="Browse"><svg viewBox="0 0 28 28"><path d="M7 7h16M7 14h16M7 21h16"/><circle cx="4" cy="7" r=".7"/><circle cx="4" cy="14" r=".7"/><circle cx="4" cy="21" r=".7"/></svg></button>
+    <button class="nav" data-tab="Profile"><svg viewBox="0 0 28 28"><circle cx="14" cy="9" r="4.2"/><path d="M5 24c.8-5 4-7.5 9-7.5s8.2 2.5 9 7.5Z"/></svg></button>
+  </nav>
+  <div class="gesture"><span></span></div>
+</main>
+<script type="module" src="./dist/app.js"></script>
+</body>
+</html>
