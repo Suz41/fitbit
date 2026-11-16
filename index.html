@@ -3,96 +3,316 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#202124" />
+  <meta name="theme-color" content="#202225" />
   <title>Google Fit – Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 <main class="screen">
-  <div class="status">
-    <span class="clock">6:58</span><span class="status-instagram">◎</span><span class="download">↓</span>
-    <span class="sys"><span class="signal">▮▮</span><span>Vo<br>NR</span><span>715<br>KB/s</span><span>5G+<br>▴▴</span><span class="battery">62</span></span>
-  </div>
-
-  <header class="toolbar">
-    <button class="info" aria-label="Information">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M12 10.5v6M12 7.3h.01"/></svg>
-    </button>
-    <button class="profile" aria-label="Profile">S</button>
+  <!-- Android Status Bar -->
+  <header class="status-bar">
+    <div class="status-left">
+      <span class="clock">6:58</span>
+      <!-- Instagram Glyph -->
+      <svg class="status-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="2" width="20" height="20" rx="6"/>
+        <circle cx="12" cy="12" r="5"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+      </svg>
+      <!-- Download Arrow -->
+      <svg class="status-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+      </svg>
+    </div>
+    <div class="status-right">
+      <span class="network-tech">Vo<br>NR</span>
+      <span class="network-speed">715<br>KB/s</span>
+      <span class="network-type">5G+<br><span class="network-arrows">▴▴</span></span>
+      <div class="battery-pill">
+        <span class="battery-pct">62</span>
+      </div>
+    </div>
   </header>
 
-  <section class="activity">
-    <div class="activity-rings">
-      <svg viewBox="0 0 300 300" aria-hidden="true">
-        <circle class="outer-bg" cx="150" cy="150" r="128"/>
-        <circle class="outer-value" cx="150" cy="150" r="128" pathLength="100"/>
-        <circle class="inner-bg" cx="150" cy="150" r="103"/>
-        <circle class="inner-value" cx="150" cy="150" r="103" pathLength="100"/>
+  <!-- App Top Toolbar -->
+  <div class="toolbar">
+    <button class="info-btn" aria-label="Information">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 16v-4M12 8h.01" stroke-linecap="round"/>
       </svg>
-      <div class="score"><strong>100</strong><span>13,451</span></div>
+    </button>
+    <button class="profile-avatar" aria-label="User Profile">S</button>
+  </div>
+
+  <!-- Primary Activity Rings & Numbers -->
+  <section class="activity-section">
+    <div class="rings-container">
+      <svg class="activity-rings-svg" viewBox="0 0 320 320" aria-hidden="true">
+        <!-- Outer Green Ring (Heart Points) -->
+        <circle class="ring-bg outer-track" cx="160" cy="160" r="116" />
+        <circle class="ring-val outer-val" cx="160" cy="160" r="116" pathLength="100" />
+        <!-- Inner Blue Ring (Steps) -->
+        <circle class="ring-bg inner-track" cx="160" cy="160" r="92" />
+        <circle class="ring-val inner-val" cx="160" cy="160" r="92" pathLength="100" />
+      </svg>
+      <div class="ring-center-content">
+        <span class="primary-score">100</span>
+        <span class="secondary-score">13,451</span>
+      </div>
     </div>
-    <div class="key">
-      <span><svg viewBox="0 0 24 24"><path d="M20.5 8.7c0-2.5-1.8-4.2-4.1-4.2-1.8 0-3.1 1-4.4 2.7-1.2-1.7-2.5-2.7-4.4-2.7-2.3 0-4.1 1.7-4.1 4.2 0 3.2 3.7 6.3 8.5 10.4 4.8-4.1 8.5-7.2 8.5-10.4Z"/></svg>Heart Pts</span>
-      <span><svg viewBox="0 0 24 24"><path d="M4 13.5 8 9l3 3 3-5 6 6M5 18h4m3 0h7"/><path d="m17 5 3 1-1 3"/></svg>Steps</span>
+
+    <!-- Ring Legend -->
+    <div class="ring-legend">
+      <div class="legend-item heart-item">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          <path d="M12 9v4M10 11h4" stroke-width="1.8"/>
+        </svg>
+        <span>Heart Pts</span>
+      </div>
+      <div class="legend-item steps-item">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Footprints / Sneakers icon -->
+          <path d="M4 17c1.5-1 3-2 5-2s3.5 1 5 1 3.5-.5 5-2"/>
+          <path d="M19 14l-2-6-4-1-2 3-5 1"/>
+          <circle cx="16" cy="6" r="1" fill="currentColor"/>
+        </svg>
+        <span>Steps</span>
+      </div>
     </div>
-    <div class="stats">
-      <div><strong>1,599</strong><span>Cal</span></div>
-      <div><strong>9.02</strong><span>km</span></div>
-      <div><strong>132</strong><span>Move Min</span></div>
+
+    <!-- Triple Summary Stats Row -->
+    <div class="summary-stats">
+      <div class="stat-col">
+        <strong class="stat-value">1,599</strong>
+        <span class="stat-label">Cal</span>
+      </div>
+      <div class="stat-col">
+        <strong class="stat-value">9.02</strong>
+        <span class="stat-label">km</span>
+      </div>
+      <div class="stat-col">
+        <strong class="stat-value">132</strong>
+        <span class="stat-label">Move Min</span>
+      </div>
     </div>
   </section>
 
-  <section class="cards">
-    <article class="health-card">
-      <button class="dismiss" aria-label="Dismiss">×</button>
-      <h2>Sync Fit with Health Connect</h2>
-      <p>Share stats between Fit and your other apps, like your<br class="desktop-break"> calories, heart rate, and body measurements</p>
-      <svg class="health-logo" viewBox="0 0 80 70" aria-hidden="true">
-        <path d="M38 9C27-2 9 5 8 22c-1 14 13 29 29 40 4 3 9 3 13-1l20-21c8-9 2-25-10-27-8-1-13 5-18 12L28 43c-4 4-11 0-10-6 1-5 7-8 13-5" />
-        <path d="M42 30c4-7 10-12 17-9 7 3 8 12 3 18L47 54" />
-      </svg>
-      <button class="get-started" id="connectBtn">Get started</button>
+  <!-- Feed Cards Section -->
+  <section class="feed-cards">
+
+    <!-- Card 1: Sync Fit with Health Connect -->
+    <article class="feed-card connect-card">
+      <button class="dismiss-btn" aria-label="Dismiss">×</button>
+      <h2 class="card-title">Sync Fit with Health Connect</h2>
+      <p class="card-desc">Share stats between Fit and your other apps, like your calories, heart rate, and body measurements</p>
+      
+      <!-- Official Health Connect Heart Badge -->
+      <div class="health-connect-badge" aria-hidden="true">
+        <svg viewBox="0 0 54 46" width="46" height="40" fill="none">
+          <!-- Left capsule loop -->
+          <path d="M19.5 7.5 C12 0, 1 7, 3 19 C4.5 28, 14 36, 23 43 C25.5 45, 28.5 45, 31 43 L44 32 C52 24, 48 10, 37 8 C30 7, 24 13, 20.5 18" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Inner circle dot -->
+          <circle cx="37" cy="20" r="3.2" fill="#ffffff"/>
+        </svg>
+      </div>
+
+      <button class="card-link-btn" id="connectBtn">Get started</button>
     </article>
 
-    <article class="daily-card">
-      <span class="chevron">›</span>
-      <h2>Your daily goals</h2>
-      <p class="sub">Last 7 days</p>
-      <div class="daily-content">
-        <div class="achieved"><strong>3/7</strong><span>Achieved</span></div>
-        <div class="week">
-          <div class="weekday"><div class="tiny-ring partial t1"><i></i></div><span>T</span></div>
-          <div class="weekday done"><b>✓</b><div class="tiny-ring t2"><i></i></div><span>W</span></div>
-          <div class="weekday"><div class="tiny-ring t3"><i></i></div><span>T</span></div>
-          <div class="weekday"><div class="tiny-ring partial t4"><i></i></div><span>F</span></div>
-          <div class="weekday"><div class="tiny-ring t5"><i></i></div><span>S</span></div>
-          <div class="weekday done"><b>✓</b><div class="tiny-ring t6"><i></i></div><span>S</span></div>
-          <div class="weekday done today"><b>✓</b><div class="tiny-ring t7"><i></i></div><span>M</span></div>
+    <!-- Card 2: Your daily goals -->
+    <article class="feed-card daily-goals-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Your daily goals</h2>
+          <span class="card-subtitle">Last 7 days</span>
+        </div>
+        <span class="chevron-icon">›</span>
+      </div>
+
+      <div class="goals-content-row">
+        <div class="achieved-col">
+          <strong class="achieved-count">3/7</strong>
+          <span class="achieved-label">Achieved</span>
+        </div>
+        <div class="days-week-row">
+          <!-- Tuesday -->
+          <div class="day-item">
+            <svg class="mini-day-ring" viewBox="0 0 36 36">
+              <circle class="mini-track outer" cx="18" cy="18" r="14"/>
+              <circle class="mini-val outer" cx="18" cy="18" r="14" stroke-dasharray="60 100" stroke-dashoffset="-20"/>
+              <circle class="mini-track inner" cx="18" cy="18" r="10"/>
+              <circle class="mini-val inner" cx="18" cy="18" r="10" stroke-dasharray="45 100" stroke-dashoffset="-15"/>
+            </svg>
+            <span class="day-name">T</span>
+          </div>
+          <!-- Wednesday (Done) -->
+          <div class="day-item has-check">
+            <span class="check-mark">✓</span>
+            <svg class="mini-day-ring" viewBox="0 0 36 36">
+              <circle class="mini-val outer" cx="18" cy="18" r="14" stroke-dasharray="100 100"/>
+              <circle class="mini-val inner" cx="18" cy="18" r="10" stroke-dasharray="100 100"/>
+            </svg>
+            <span class="day-name">W</span>
+          </div>
+          <!-- Thursday -->
+          <div class="day-item">
+            <svg class="mini-day-ring" viewBox="0 0 36 36">
+              <circle class="mini-track outer" cx="18" cy="18" r="14"/>
+              <circle class="mini-val outer" cx="18" cy="18" r="14" stroke-dasharray="75 100" stroke-dashoffset="-10"/>
+              <circle class="mini-track inner" cx="18" cy="18" r="10"/>
+              <circle class="mini-val inner" cx="18" cy="18" r="10" stroke-dasharray="65 100" stroke-dashoffset="-5"/>
+            </svg>
+            <span class="day-name">T</span>
+          </div>
+          <!-- Friday -->
+          <div class="day-item">
+            <svg class="mini-day-ring" viewBox="0 0 36 36">
+              <circle class="mini-track outer" cx="18" cy="18" r="14"/>
+              <circle class="mini-val outer" cx="18" cy="18" r="14" stroke-dasharray="50 100" stroke-dashoffset="-30"/>
+              <circle class="mini-track inner" cx="18" cy="18" r="10"/>
+              <circle class="mini-val inner" cx="18" cy="18" r="10" stroke-dasharray="35 100" stroke-dashoffset="-20"/>
+            </svg>
+            <span class="day-name">F</span>
+          </div>
+          <!-- Saturday -->
+          <div class="day-item">
+            <svg class="mini-day-ring" viewBox="0 0 36 36">
+              <circle class="mini-track outer" cx="18" cy="18" r="14"/>
+              <circle class="mini-val outer" cx="18" cy="18" r="14" stroke-dasharray="70 100" stroke-dashoffset="-15"/>
+              <circle class="mini-track inner" cx="18" cy="18" r="10"/>
+              <circle class="mini-val inner" cx="18" cy="18" r="10" stroke-dasharray="55 100" stroke-dashoffset="-10"/>
+            </svg>
+            <span class="day-name">S</span>
+          </div>
+          <!-- Sunday (Done) -->
+          <div class="day-item has-check">
+            <span class="check-mark">✓</span>
+            <svg class="mini-day-ring" viewBox="0 0 36 36">
+              <circle class="mini-val outer" cx="18" cy="18" r="14" stroke-dasharray="100 100"/>
+              <circle class="mini-val inner" cx="18" cy="18" r="10" stroke-dasharray="100 100"/>
+            </svg>
+            <span class="day-name">S</span>
+          </div>
+          <!-- Monday (Today, Done) -->
+          <div class="day-item has-check today">
+            <span class="check-mark">✓</span>
+            <svg class="mini-day-ring" viewBox="0 0 36 36">
+              <circle class="mini-val outer" cx="18" cy="18" r="14" stroke-dasharray="100 100"/>
+              <circle class="mini-val inner" cx="18" cy="18" r="10" stroke-dasharray="100 100"/>
+            </svg>
+            <span class="day-name today-label">M</span>
+          </div>
         </div>
       </div>
     </article>
 
-    <article class="weekly-card">
-      <span class="chevron">›</span>
-      <h2>Your weekly target</h2>
-      <p class="sub">Nov 15 – 21</p>
-      <div class="target">
-        <strong>133 <small>of 150</small></strong>
-        <div class="bar"><i></i></div>
+    <!-- Card 3: Your weekly target -->
+    <article class="feed-card weekly-target-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Your weekly target</h2>
+          <span class="card-subtitle">Nov 15 – 21</span>
+        </div>
+        <span class="chevron-icon">›</span>
       </div>
-      <p class="weekly-copy">Scoring 150 Heart Points a week can help you<br> improve your health and boost your mood.</p>
+
+      <div class="target-progress-row">
+        <span class="target-values">
+          <strong class="target-current">133</strong>
+          <span class="target-total">of 150</span>
+        </span>
+        <div class="target-bar-track">
+          <div class="target-bar-fill" style="width: 88.7%;"></div>
+        </div>
+      </div>
+
+      <div class="target-footer-row">
+        <p class="target-copy">
+          Scoring 150 Heart Points a week can help you<br>
+          live longer, sleep better, and boost your mood
+        </p>
+        <div class="aha-badge" title="American Heart Association">
+          <!-- Torch Flame Icon -->
+          <svg viewBox="0 0 36 36" width="28" height="28" fill="none">
+            <path d="M18 4 C14 9, 10 13, 11 18 C11.5 21, 14 24, 18 24 C22 24, 25 20, 24 16 C23 11, 20 8, 18 4 Z" fill="#ea4335"/>
+            <path d="M15 17 C15 15, 17 13, 18 11 C19 13, 21 15, 20 18 C19 20, 16 20, 15 17 Z" fill="#fbbc04"/>
+            <path d="M15 25 h6 v4 h-6 z M17 29 h2 v3 h-2 z" fill="#ea4335"/>
+          </svg>
+          <div class="aha-text">
+            <span>American</span>
+            <span>Heart</span>
+            <span>Association</span>
+          </div>
+        </div>
+      </div>
     </article>
+
   </section>
 
-  <button class="fab" id="addBtn" aria-label="Add activity"><span></span><i></i></button>
+  <!-- Google 4-Color Floating Action Button -->
+  <button class="fab-btn" id="addBtn" aria-label="Add activity">
+    <svg viewBox="0 0 24 24" width="24" height="24">
+      <!-- Top Red -->
+      <rect x="10.5" y="4" width="3" height="7.5" rx="1.5" fill="#ea4335" />
+      <!-- Right Blue -->
+      <rect x="12.5" y="10.5" width="7.5" height="3" rx="1.5" fill="#4285f4" />
+      <!-- Bottom Green -->
+      <rect x="10.5" y="12.5" width="3" height="7.5" rx="1.5" fill="#34a853" />
+      <!-- Left Yellow -->
+      <rect x="4" y="10.5" width="7.5" height="3" rx="1.5" fill="#fbbc04" />
+    </svg>
+  </button>
+
+  <!-- Bottom Navigation Bar -->
   <nav class="bottom-nav">
-    <button class="nav active" data-tab="Home"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10.5"/><circle cx="14" cy="14" r="6.5"/><path d="M14 7.5v6.5l4 2"/></svg><b>Home</b></button>
-    <button class="nav" data-tab="Journal"><svg viewBox="0 0 28 28"><rect x="6" y="5" width="16" height="20" rx="1.5"/><path d="M10 3v5m8-5v5M10 12h8m-8 4h8m-8 4h6"/></svg></button>
-    <button class="nav" data-tab="Browse"><svg viewBox="0 0 28 28"><path d="M7 7h16M7 14h16M7 21h16"/><circle cx="4" cy="7" r=".7"/><circle cx="4" cy="14" r=".7"/><circle cx="4" cy="21" r=".7"/></svg></button>
-    <button class="nav" data-tab="Profile"><svg viewBox="0 0 28 28"><circle cx="14" cy="9" r="4.2"/><path d="M5 24c.8-5 4-7.5 9-7.5s8.2 2.5 9 7.5Z"/></svg></button>
+    <button class="nav-item active" data-tab="Home">
+      <svg class="nav-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="9.5"/>
+        <circle cx="12" cy="12" r="5.5"/>
+        <circle cx="12" cy="12" r="2" fill="currentColor"/>
+      </svg>
+      <span class="nav-label">Home</span>
+    </button>
+    <button class="nav-item" data-tab="Journal">
+      <svg class="nav-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <rect x="5" y="3" width="14" height="18" rx="2"/>
+        <line x1="9" y1="8" x2="15" y2="8"/>
+        <line x1="9" y1="12" x2="15" y2="12"/>
+        <line x1="9" y1="16" x2="13" y2="16"/>
+      </svg>
+      <span class="nav-label">Journal</span>
+    </button>
+    <button class="nav-item" data-tab="Browse">
+      <svg class="nav-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="9" y1="6" x2="20" y2="6"/>
+        <line x1="9" y1="12" x2="20" y2="12"/>
+        <line x1="9" y1="18" x2="20" y2="18"/>
+        <circle cx="4.5" cy="6" r="1.5" fill="currentColor"/>
+        <circle cx="4.5" cy="12" r="1.5" fill="currentColor"/>
+        <circle cx="4.5" cy="18" r="1.5" fill="currentColor"/>
+      </svg>
+      <span class="nav-label">Browse</span>
+    </button>
+    <button class="nav-item" data-tab="Profile">
+      <svg class="nav-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+      </svg>
+      <span class="nav-label">Profile</span>
+    </button>
   </nav>
-  <div class="gesture"><span></span></div>
+
+  <!-- Android Home Indicator / Gesture Pill -->
+  <div class="gesture-bar">
+    <div class="gesture-pill"></div>
+  </div>
 </main>
+
 <script type="module" src="./dist/app.js"></script>
 </body>
 </html>
